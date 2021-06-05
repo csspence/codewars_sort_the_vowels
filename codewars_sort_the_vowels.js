@@ -23,6 +23,27 @@ Each line is seperated with \n
 Invalid input ( undefined / null / integer ) should return an empty string
 */
 
-function sortVowels(s){
-  //code
+const sortVowels = (s) => {
+  let string = '';
+  let vowels = {
+    a : true,
+    e : true,
+    i : true,
+    o : true,
+    u : true
+  }
+  if(s === undefined || s === null || typeof s === 'number') {
+    return string;
+  }
+  for(let i = 0; i < s.length; i++) {
+    if(vowels[s[i].toLowerCase()] === true) {
+      string += '|' + s[i];
+    } else {
+      string += s[i] + '|';
+    }
+    if(i < s.length - 1) {
+      string += '\n';
+    }
+  }
+  return string;
 }
